@@ -9,4 +9,5 @@ pub use pk_tree_node::PKTreeNodeCircuit;
 pub mod macro_block;
 pub mod merger;
 pub mod pk_tree_leaf;
+mod pk_tree_leaf_test;
 pub mod pk_tree_node;

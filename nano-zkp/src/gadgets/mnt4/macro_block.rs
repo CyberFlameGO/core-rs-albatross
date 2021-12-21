@@ -373,7 +373,7 @@ mod tests {
     }
 
     #[test]
-    fn block_verify() {
+    fn block_verify_correct() {
         // Initialize the constraint system.
         let cs = ConstraintSystem::<MNT4Fr>::new_ref();
 
