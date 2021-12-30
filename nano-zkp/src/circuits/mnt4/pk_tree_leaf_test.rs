@@ -60,12 +60,20 @@ mod tests {
         println!("{}", cs.num_constraints() - constraints_prev);
         constraints_prev = cs.num_constraints();
 
-        let _bits = SerializeGadget::serialize_g1(cs.clone(), &g1_var[0]).unwrap();
+        let g1_aff = g1_var[0].to_affine().unwrap();
         println!("{}", cs.num_constraints() - constraints_prev);
         constraints_prev = cs.num_constraints();
 
-        let _bits = SerializeGadget::serialize_g2(cs.clone(), &g2_var[0]).unwrap();
+        let g2_aff = g2_var[0].to_affine().unwrap();
         println!("{}", cs.num_constraints() - constraints_prev);
+        constraints_prev = cs.num_constraints();
+
+        // let _bits = SerializeGadget::serialize_g1(cs.clone(), &g1_var[0]).unwrap();
+        // println!("{}", cs.num_constraints() - constraints_prev);
+        // constraints_prev = cs.num_constraints();
+        //
+        // let _bits = SerializeGadget::serialize_g2(cs.clone(), &g2_var[0]).unwrap();
+        // println!("{}", cs.num_constraints() - constraints_prev);
 
         panic!()
     }
