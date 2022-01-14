@@ -103,7 +103,7 @@ dependencies = [
  "ark-std",
  "blake2",
  "derivative",
- "digest",
+ "digest 0.9.0",
  "rayon",
  "tracing",
 ]
@@ -276,7 +276,7 @@ checksum = "1d6c2b318ee6e10f8c2853e73a83adc0ccb88995aa978d8a3408d492ab2ee671"
 dependencies = [
  "ark-serialize-derive",
  "ark-std",
- "digest",
+ "digest 0.9.0",
 ]
 
 [[package]]
@@ -632,7 +632,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0a4e37d16930f5459780f5621038b6382b9bb37c19016f39fb6b5808d831f174"
 dependencies = [
  "crypto-mac",
- "digest",
+ "digest 0.9.0",
  "opaque-debug",
 ]
 
@@ -664,6 +664,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4152116fd6e9dadb291ae18fc1ec3575ed6d84c29642d97890f4b4a3417297e4"
 dependencies = [
  "block-padding",
+ "generic-array",
+]
+
+[[package]]
+name = "block-buffer"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f1d36a02058e76b040de25a4464ba1c80935655595b661505c8b39b664828b95"
+dependencies = [
  "generic-array",
 ]
 
@@ -954,6 +963,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
 
 [[package]]
+name = "crypto-common"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "683d6b536309245c849479fba3da410962a43ed8e51c26b729208ec0ac2798d0"
+dependencies = [
+ "generic-array",
+]
+
+[[package]]
 name = "crypto-mac"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1010,7 +1028,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b9fdf9972b2bd6af2d913799d9ebc165ea4d2e65878e329d9c6b372c4491b61"
 dependencies = [
  "byteorder",
- "digest",
+ "digest 0.9.0",
  "rand_core 0.5.1",
  "subtle",
  "zeroize",
@@ -1226,6 +1244,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "digest"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b697d66081d42af4fba142d56918a3cb21dc8eb63372c6b85d14f44fb9c5979b"
+dependencies = [
+ "block-buffer 0.10.0",
+ "crypto-common",
+ "generic-array",
+]
+
+[[package]]
 name = "directories"
 version = "4.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1286,7 +1315,7 @@ dependencies = [
  "ed25519",
  "rand 0.7.3",
  "serde",
- "sha2",
+ "sha2 0.9.9",
  "zeroize",
 ]
 
@@ -1299,7 +1328,7 @@ dependencies = [
  "hex",
  "rand_core 0.6.3",
  "serde",
- "sha2",
+ "sha2 0.9.9",
  "thiserror",
  "zeroize",
 ]
@@ -1720,7 +1749,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "126888268dcc288495a26bf004b38c5fdbb31682f992c84ceb046a1f0fe38840"
 dependencies = [
  "crypto-mac",
- "digest",
+ "digest 0.9.0",
 ]
 
 [[package]]
@@ -1729,7 +1758,7 @@ version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "17ea0a1394df5b6574da6e0c1ade9e78868c9fb0a4e5ef4428e32da4676b85b1"
 dependencies = [
- "digest",
+ "digest 0.9.0",
  "generic-array",
  "hmac",
 ]
@@ -2092,7 +2121,7 @@ dependencies = [
  "rand 0.8.4",
  "ring",
  "rw-stream-sink",
- "sha2",
+ "sha2 0.9.9",
  "smallvec",
  "thiserror",
  "unsigned-varint",
@@ -2167,7 +2196,7 @@ dependencies = [
  "prost-build",
  "rand 0.7.3",
  "regex",
- "sha2",
+ "sha2 0.9.9",
  "smallvec",
  "unsigned-varint",
 ]
@@ -2209,7 +2238,7 @@ dependencies = [
  "prost",
  "prost-build",
  "rand 0.7.3",
- "sha2",
+ "sha2 0.9.9",
  "smallvec",
  "uint",
  "unsigned-varint",
@@ -2285,7 +2314,7 @@ dependencies = [
  "prost",
  "prost-build",
  "rand 0.8.4",
- "sha2",
+ "sha2 0.9.9",
  "snow",
  "static_assertions",
  "x25519-dalek",
@@ -2379,7 +2408,7 @@ dependencies = [
  "prost",
  "prost-build",
  "rand 0.8.4",
- "sha2",
+ "sha2 0.9.9",
  "thiserror",
  "unsigned-varint",
  "void",
@@ -2515,14 +2544,14 @@ checksum = "b0452aac8bab02242429380e9b2f94ea20cea2b37e2c1777a1358799bbe97f37"
 dependencies = [
  "arrayref",
  "base64 0.13.0",
- "digest",
+ "digest 0.9.0",
  "hmac-drbg",
  "libsecp256k1-core",
  "libsecp256k1-gen-ecmult",
  "libsecp256k1-gen-genmult",
  "rand 0.8.4",
  "serde",
- "sha2",
+ "sha2 0.9.9",
  "typenum",
 ]
 
@@ -2533,7 +2562,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5be9b9bb642d8522a44d533eab56c16c738301965504753b03ad1de3425d5451"
 dependencies = [
  "crunchy",
- "digest",
+ "digest 0.9.0",
  "subtle",
 ]
 
@@ -2740,10 +2769,10 @@ version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "752a61cd890ff691b4411423d23816d5866dd5621e4d1c5687a53b94b5a979d8"
 dependencies = [
- "digest",
+ "digest 0.9.0",
  "generic-array",
  "multihash-derive",
- "sha2",
+ "sha2 0.9.9",
  "unsigned-varint",
 ]
 
@@ -3120,7 +3149,7 @@ dependencies = [
  "nimiq-mmr",
  "rust-argon2",
  "serde",
- "sha2",
+ "sha2 0.10.1",
 ]
 
 [[package]]
@@ -3226,7 +3255,7 @@ dependencies = [
  "rand 0.8.4",
  "rand_core 0.6.3",
  "serde",
- "sha2",
+ "sha2 0.10.1",
  "thiserror",
 ]
 
@@ -3864,7 +3893,7 @@ dependencies = [
  "rand 0.8.4",
  "serde",
  "serde-big-array",
- "sha2",
+ "sha2 0.10.1",
 ]
 
 [[package]]
@@ -4957,10 +4986,10 @@ version = "0.9.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "99cd6713db3cf16b6c84e06321e049a9b9f699826e16096d23bbcc44d15d51a6"
 dependencies = [
- "block-buffer",
+ "block-buffer 0.9.0",
  "cfg-if",
  "cpufeatures",
- "digest",
+ "digest 0.9.0",
  "opaque-debug",
 ]
 
@@ -4970,11 +4999,22 @@ version = "0.9.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4d58a1e1bf39749807d89cf2d98ac2dfa0ff1cb3faa38fbb64dd88ac8013d800"
 dependencies = [
- "block-buffer",
+ "block-buffer 0.9.0",
  "cfg-if",
  "cpufeatures",
- "digest",
+ "digest 0.9.0",
  "opaque-debug",
+]
+
+[[package]]
+name = "sha2"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "99c3bd8169c58782adad9290a9af5939994036b76187f7b4f0e6de91dbbfc0ec"
+dependencies = [
+ "cfg-if",
+ "cpufeatures",
+ "digest 0.10.1",
 ]
 
 [[package]]
@@ -4983,8 +5023,8 @@ version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f81199417d4e5de3f04b1e871023acea7389672c4135918f05aa9cbf2f2fa809"
 dependencies = [
- "block-buffer",
- "digest",
+ "block-buffer 0.9.0",
+ "digest 0.9.0",
  "keccak",
  "opaque-debug",
 ]
@@ -5094,7 +5134,7 @@ dependencies = [
  "rand_core 0.6.3",
  "ring",
  "rustc_version 0.3.3",
- "sha2",
+ "sha2 0.9.9",
  "subtle",
  "x25519-dalek",
 ]
