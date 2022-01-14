@@ -52,11 +52,11 @@ mod tests {
         // Allocate.
         let mut constraints_prev = 0;
 
-        let g1_var = Vec::<G1Var>::new_witness(cs.clone(), || Ok(&g1_vec[..])).unwrap();
+        let g1_var = Vec::<G1Var>::new_input(cs.clone(), || Ok(&g1_vec[..])).unwrap();
         println!("{}", cs.num_constraints() - constraints_prev);
         constraints_prev = cs.num_constraints();
 
-        let g2_var = Vec::<G2Var>::new_witness(cs.clone(), || Ok(&g2_vec[..])).unwrap();
+        let g2_var = Vec::<G2Var>::new_input(cs.clone(), || Ok(&g2_vec[..])).unwrap();
         println!("{}", cs.num_constraints() - constraints_prev);
         constraints_prev = cs.num_constraints();
 
